@@ -1,17 +1,47 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './components/app/';
+//import reportWebVitals from './reportWebVitals';
+/*class WhoAmi extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            years:26
+        }
+        this.nextYear = this.nextYear.bind(this)
+    }
+    
+    nextYear(){
+        this.setState(state => ({
+            years: ++state.years
+        }))
+    }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    
+    render(){
+        const {name, surname, link} = this.props;
+        const {years} = this.state;
+        return(
+            <>
+            <button onClick={this.nextYear}>++</button>
+                <h1>My name is {name}, surname - {surname}, years = {years}</h1>
+                <a href={link}>My profile</a>
+            </>
+        )
+    }
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+const All = () => {
+    return(
+        <>
+            <WhoAmi name="Jesica" surname="Sdtuy" link = "ya.ru"/>
+            <WhoAmi name="Marc" surname="Sfffr" link = "yandex.ru"/>
+            <WhoAmi name="Tom" surname="Kopl" link = "ops.ru"/>
+        </>
+    )
+}*/
+
+
+ReactDOM.render(<App/>,document.getElementById('root'));
