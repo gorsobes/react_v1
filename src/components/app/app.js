@@ -5,7 +5,12 @@ import PostStatusFilter from '../post-status-filter/post-status-filter';
 import PostList from '../post-list/post-list';
 import PostAddForm from '../post-add-form/post-add-form';
 import './app.css';
+import styled from 'styled-components';
 
+const AppBlock = styled.div`
+margin: 0 auto;
+max-width: 800px; 
+`
 
 const App = () => {
 
@@ -17,7 +22,7 @@ const data =[
 
 
     return (
-        <div className="app">
+        <AppBlock>
         <Appheader/>
         <div className="searc-panel d-flex">
                 <SerchPanel/>
@@ -25,7 +30,7 @@ const data =[
         </div>
         <PostList posts={data}/>
         <PostAddForm/>
-        </div>
+        </AppBlock>
     )
 }
 export default App;
