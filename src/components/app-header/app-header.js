@@ -17,11 +17,11 @@ justify-content: space-between;
   color: grey;
     }
 `
-const Appheader = ()=>{
+const Appheader = ({liked,allPost})=>{
     return (
         <Header>
             <h1>Gorsobes</h1>
-            <h2>5 записей, из них понравило 0</h2>
+            <h2>{allPost} записей, из них понравило {liked}</h2>
         </Header>
     )
 }

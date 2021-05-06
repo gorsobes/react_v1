@@ -32,9 +32,8 @@ export default class  App extends Component {
 deleteItem(id){
         this.setState(({data}) =>{
             const index = data.findIndex(elem => elem.id === id);
-             const before = data.slice(0,index);
-             const after = data.slice(index +1);
-             const newArr = [...before, ... after];
+            
+             const newArr = [...data.slice(0,index), ...data.slice(index +1)];
                 return{
                     data: newArr
                 }
@@ -53,9 +52,21 @@ const newItem = {
             data: newArr
         }
  
-    });
+    })
 }
 onToggleImportant(id){
+    this.setState(({data})=>{
+        const index = data.findIndex(elem => elem.id ===id);
+    
+        const old = data[index];
+        const newItem = {...old, important: !old.important};
+    
+        const newArr = [...data.slice(0,index), newItem, ...data.slice(index +1)];
+    return{
+        data:newArr
+    }
+    
+    })
 
 }
 
@@ -64,13 +75,28 @@ this.setState(({data})=>{
     const index = data.findIndex(elem => elem.id ===id);
 
     const old = data[index];
+    const newItem = {...old, like: !old.like};
+
+    const newArr = [...data.slice(0,index), newItem, ...data.slice(index +1)];
+return{
+    data:newArr
+}
+
 })
 }
     
+
+
 render(){
+        const {data} = this.state;
+        const liked = data.filter(item=>item.like).length;
+        const allPost = data.length;
+
     return (
         <AppBlock>
-        <Appheader/>
+        <Appheader
+        liked={liked}
+        allPost = {allPost}/>
         <div className="searc-panel d-flex">
                 <SerchPanel/>
                 
